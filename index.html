@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>贴片电阻识别器</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="workspace" aria-label="电阻识别工具">
+      <section class="input-card panel">
+        <div class="card-heading">
+          <div>
+            <h1>输入电阻上的字符</h1>
+          </div>
+          <span class="keyboard-hint">⌘ / Ctrl + K</span>
+        </div>
+        <label class="input-wrap" for="code-input">
+          <span class="input-prefix">CODE</span>
+          <input id="code-input" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="例如 473" maxlength="5" value="334" />
+          <button id="clear-btn" class="clear-btn" type="button" aria-label="清空输入">×</button>
+        </label>
+        <div class="examples-label">试试这些</div>
+        <div class="example-list" aria-label="示例丝印">
+          <button type="button" class="example-chip" data-code="473">473</button>
+          <button type="button" class="example-chip active" data-code="334">334</button>
+          <button type="button" class="example-chip" data-code="01B">01B</button>
+          <button type="button" class="example-chip" data-code="4R7">4R7</button>
+          <button type="button" class="example-chip" data-code="1002">1002</button>
+        </div>
+        <p class="input-tip">字母不区分大小写，空格会自动忽略</p>
+      </section>
+
+      <section class="result-card panel" aria-live="polite">
+        <div class="card-heading result-heading">
+          <div>
+            <h2>实际阻值</h2>
+          </div>
+          <div class="match-badge"><span class="badge-dot"></span><span id="match-type">3 位码 · ±5%</span></div>
+        </div>
+        <div id="result-value" class="result-value">330 <span>kΩ</span></div>
+        <div class="result-subline" id="result-subline">= 330,000 Ω</div>
+        <div class="result-meta">
+          <div class="meta-item"><span class="meta-label">编码</span><strong id="code-display">334</strong></div>
+          <div class="meta-divider"></div>
+          <div class="meta-item"><span class="meta-label">公差</span><strong id="tolerance-display">±5%</strong></div>
+          <div class="meta-divider"></div>
+          <div class="meta-item"><span class="meta-label">系列</span><strong id="series-display">E24</strong></div>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
